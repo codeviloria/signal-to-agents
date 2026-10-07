@@ -1,0 +1,39 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === 'en')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+).slice(0, 5);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Signal to Agents</h1>
+			<p>
+				AI agents, local LLMs and telecom engineering. Notes from an RF engineer moving into AI:
+				what I build, what breaks, and what I learn along the way.
+			</p>
+			<h2>Latest posts</h2>
+			<ul>
+				{posts.map((post) => (
+					<li>
+						<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+						<br /><small>{post.data.description}</small>
+					</li>
+				))}
+			</ul>
+			<p><a href="/blog">All posts →</a> · <a href="/about">About</a></p>
+		</main>
+		<Footer />
+	</body>
+</html>

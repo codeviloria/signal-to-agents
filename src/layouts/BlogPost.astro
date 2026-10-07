@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, lang, translation } = Astro.props;
+const switchLabel = lang === 'es' ? 'Read in English' : 'Leer en español';
+---
+
+<html lang={lang}>
+	<head>
+		<BaseHead title={title} description={description} image={heroImage} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.hero-image {
+				width: 100%;
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+			.lang-switch {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.5em;
+				margin-bottom: 1em;
+				padding: 0.45em 1em;
+				border: 1px solid var(--accent);
+				border-radius: 999px;
+				color: var(--accent);
+				font-size: 0.9em;
+				font-weight: 700;
+				text-decoration: none;
+			}
+			.lang-switch span {
+				padding: 0.1em 0.45em;
+				border-radius: 999px;
+				background: var(--accent);
+				color: white;
+				font-size: 0.8em;
+			}
+			.lang-switch:hover {
+				background: var(--accent);
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div class="hero-image">
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+				<div class="prose">
+					<div class="title">
+						{translation && (
+							<a class="lang-switch" href={`/blog/${translation}/`} hreflang={lang === 'es' ? 'en' : 'es'}>
+								<span aria-hidden="true">{lang === 'es' ? 'EN' : 'ES'}</span> {switchLabel}
+							</a>
+						)}
+						<div class="date">
+							<FormattedDate date={pubDate} />
+							{updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)}
+						</div>
+						<h1>{title}</h1>
+						<hr />
+					</div>
+					<slot />
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
