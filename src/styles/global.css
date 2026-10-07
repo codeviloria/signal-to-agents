@@ -30,7 +30,7 @@ body {
 	line-height: 1.7;
 }
 main {
-	width: 720px;
+	width: 900px;
 	max-width: calc(100% - 2em);
 	margin: auto;
 	padding: 3em 1em;
@@ -158,5 +158,29 @@ pre {
 	overflow-x: auto;
 }
 main {
-	overflow-wrap: anywhere;
+	overflow-wrap: break-word;
+}
+pre {
+	font-size: 0.78em;
+	line-height: 1.5;
+}
+code {
+	font-size: 0.88em;
+}
+pre > code {
+	font-size: inherit;
+}
+td code,
+th code {
+	white-space: nowrap;
+}
+table {
+	font-size: 0.9em;
+}
+/* Desktop: wrap long code lines so nothing is hidden; phones keep horizontal scroll */
+@media (min-width: 721px) {
+	pre > code {
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
 }
