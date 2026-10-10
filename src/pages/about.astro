@@ -5,31 +5,82 @@ import { GITHUB_URL, LINKEDIN_URL } from '../consts';
 
 <Layout
 	title="About"
-	description="Senior RAN engineer building AI agents for network operations, on local models."
+	description="Senior RAN engineer (15+ years, 2G–5G) building AI agents for network operations. Open to Telecom AI, RAN automation and AI engineering roles."
 	pubDate={new Date('2026-10-03T12:00:00-05:00')}
 >
 	<p>
-		I'm Gino Viloria, a telecommunications engineer from Barranquilla, Colombia. I've spent 15+
-		years in 2G–5G radio access networks across Latin America and Japan, including the RF team that
-		launched Rakuten Mobile's Open RAN network in Tokyo. Today I work on LTE/5G planning and
-		optimization at WOM Colombia, where I built a parameter audit framework for ~30K Huawei cells.
+		I'm <strong>Gino Viloria</strong>, a telecommunications engineer from Barranquilla, Colombia. I
+		build <strong>AI agents for network operations</strong>: assistants that read network KPIs and
+		configuration, find the root cause of a problem and explain it with evidence, so engineers
+		spend their time deciding instead of searching.
 	</p>
+
+	<h2>What I bring</h2>
+	<ul>
+		<li>
+			<strong>15+ years in 2G–5G radio access networks</strong> across Colombia, Ecuador, Peru,
+			Argentina, Mexico, Guatemala, Nicaragua and Japan, including the RF team that launched
+			Rakuten Mobile's Open RAN network in Tokyo, the first fully cloud-native commercial network.
+		</li>
+		<li>
+			<strong>Automation that runs in production.</strong> At WOM Colombia I built a parameter audit
+			framework for ~30K Huawei cells: Python ingestion into PostgreSQL, ~800K rule-based findings,
+			reporting in Grafana, Power BI and a Next.js front end. Site configuration scripts went from
+			~2 hours to ~20 minutes per site.
+		</li>
+		<li>
+			<strong>AI engineering applied to a domain I know deeply.</strong> Post-Graduate in AI &amp;
+			Machine Learning (UT Austin), now focused on LLM agents, tool calling, tracing and
+			evaluation. Knowing what a wrong SMTC window or a bad B1 threshold looks like is what lets me
+			design the right tools and judge whether the agent is actually right.
+		</li>
+	</ul>
+
+	<h2>What I've built</h2>
+	<ul>
+		<li>
+			<a href="https://github.com/codeviloria/5g-nsa-agent">5G NSA troubleshooting agent</a>{' '}
+			(open source): a tool-calling agent that diagnoses EN-DC problems on local models, built in
+			plain Python and with LangChain, debugged with LangSmith traces. Four trace-driven iterations
+			took it to every root cause found, with no unsupported recommendations, in both test
+			scenarios. <a href="/blog/5g-nsa-agent-tool-calling-gemma4/">Read the write-up</a>.
+		</li>
+		<li>
+			<strong>RAN field-validation tools</strong>: Python tools and a Telegram bot that pull alarms,
+			KPIs and configuration from Huawei OSS for a cell or coordinate in one message. Next step:
+			turning them into tools for an agent.
+		</li>
+		<li>
+			<strong>Home AI lab</strong>: CPU-only servers running local LLMs and embedding models with
+			Ollama, RAG proofs of concept and MCP servers built with FastMCP.
+		</li>
+	</ul>
+
+	<h2>What I'm learning now</h2>
 	<p>
-		I'm moving into AI engineering, focused on <strong>agents for network operations</strong>:
-		tool-calling LLMs that read KPIs and configuration, find the root cause and explain it, with a
-		human approving any change.
+		LangChain Academy (<em>Introduction to LangChain</em> completed) on the way to the{' '}
+		<strong>LangChain Certified Agent Engineer (LCAE)</strong> exam; LangGraph, agent memory and
+		evaluation, the Agent2Agent (A2A) protocol; and fine-tuning open-weight models with LoRA/QLoRA
+		on Kaggle GPUs. Each topic ends up as a project and a post here.
 	</p>
-	<p>This blog is my lab notebook. Every post follows the same rules:</p>
+
+	<h2>How this blog works</h2>
 	<ul>
 		<li>Runs on <strong>local models</strong> (Ollama), with no paid APIs.</li>
-		<li><strong>Traced and measured</strong>: what failed and what fixed it, not just the final demo.</li>
-		<li>The <strong>code is public</strong>; network data is fictional unless stated otherwise.</li>
+		<li>
+			<strong>Traced and measured</strong>: what failed and what fixed it, not just the final demo.
+		</li>
+		<li>
+			The <strong>code is public</strong>. Network data is simulated to reproduce real-world
+			failures; no operator data is used.
+		</li>
 	</ul>
+
+	<h2>Let's talk</h2>
 	<p>
-		Currently: LangChain Academy (Introduction to LangChain completed) and preparing for the
-		LangChain Certified Agent Engineer (LCAE) exam.
-	</p>
-	<p>
-		Code on <a href={GITHUB_URL}>GitHub</a> · let's talk on <a href={LINKEDIN_URL}>LinkedIn</a>.
+		I'm <strong>open to Telecom AI, RAN automation and AI engineering roles</strong>, remote or with
+		relocation. If you're building AI for networks, or need someone who speaks both RAN and LLMs,
+		reach me on <a href={LINKEDIN_URL}>LinkedIn</a> or see the code on{' '}
+		<a href={GITHUB_URL}>GitHub</a>.
 	</p>
 </Layout>
