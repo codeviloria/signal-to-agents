@@ -1,25 +1,35 @@
 ---
 import Layout from '../layouts/BlogPost.astro';
+import { GITHUB_URL, LINKEDIN_URL } from '../consts';
 ---
 
 <Layout
 	title="About"
-	description="Telecom engineer working on RAN optimization and moving into AI engineering."
+	description="Senior RAN engineer building AI agents for network operations, on local models."
 	pubDate={new Date('2026-10-03T12:00:00-05:00')}
 >
 	<p>
-		I'm Gino, a telecommunications engineer based in Barranquilla, Colombia. My day job is RAN and
-		core network optimization: LTE coverage planning, parameter audits, KPIs and the occasional
-		3 a.m. maintenance window.
+		I'm Gino Viloria, a telecommunications engineer from Barranquilla, Colombia. I've spent 15+
+		years in 2G–5G radio access networks across Latin America and Japan, including the RF team that
+		launched Rakuten Mobile's Open RAN network in Tokyo. Today I work on LTE/5G planning and
+		optimization at WOM Colombia, where I built a parameter audit framework for ~30K Huawei cells.
 	</p>
 	<p>
-		I'm moving into AI engineering, and this blog is my public lab notebook. I write about building
-		agents, running LLMs locally, evaluating them properly, and what happens when you point them at
-		real engineering problems instead of toy demos.
+		I'm moving into AI engineering, focused on <strong>agents for network operations</strong>:
+		tool-calling LLMs that read KPIs and configuration, find the root cause and explain it, with a
+		human approving any change.
+	</p>
+	<p>This blog is my lab notebook. Every post follows the same rules:</p>
+	<ul>
+		<li>Runs on <strong>local models</strong> (Ollama), with no paid APIs.</li>
+		<li><strong>Traced and measured</strong>: what failed and what fixed it, not just the final demo.</li>
+		<li>The <strong>code is public</strong>; network data is fictional unless stated otherwise.</li>
+	</ul>
+	<p>
+		Currently: LangChain Academy (Introduction to LangChain completed) and preparing for the
+		LangChain Certified Agent Engineer (LCAE) exam.
 	</p>
 	<p>
-		Currently studying for the LangChain Certified Agent Engineer (LCAE) exam and running a small
-		local AI lab with Ollama.
+		Code on <a href={GITHUB_URL}>GitHub</a> · let's talk on <a href={LINKEDIN_URL}>LinkedIn</a>.
 	</p>
-	<p><em>Network data in posts is fictional unless stated otherwise.</em></p>
 </Layout>
