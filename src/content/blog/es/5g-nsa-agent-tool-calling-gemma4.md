@@ -7,6 +7,12 @@ lang: 'es'
 translation: '5g-nsa-agent-tool-calling-gemma4'
 ---
 
+<div class="tldr">
+<p class="tldr-title">En palabras simples</p>
+<p>Las redes móviles tienen miles de configuraciones, y cuando los usuarios no reciben 5G, un ingeniero tiene que revisar datos de varios sistemas para encontrar la causa. Construí un <strong>asistente de IA que hace esa revisión</strong>: decide qué datos consultar, los lee con pequeños programas que escribí y explica la causa con evidencia. Cualquier cambio lo sigue aprobando una persona.</p>
+<p>Lo interesante es lo que salió mal. Al principio el asistente se rendía antes de tiempo, me pedía que yo hiciera las revisiones o fingía hacerlas. <strong>Registrar cada paso que daba</strong> (sus "trazas") mostró exactamente dónde fallaba, y tras cuatro rondas de correcciones encontró todas las causas reales en los dos casos de prueba. Todo corre en un computador normal, sin IA en la nube y sin datos reales de ninguna red.</p>
+</div>
+
 Todo ingeniero RF que trabaja con 5G NSA ha recibido este ticket: *"el anchor tiene cobertura n78, los teléfonos soportan 5G, pero los usuarios casi nunca ven el ícono de 5G"*. Los drive tests muestran buen SS-RSRP, no hay alarmas, y aun así el EN-DC time ratio está en 2 %.
 
 Si le preguntas a un modelo de lenguaje, te da una lista razonable: umbral B1, X2, vecinas NR, SMTC. Lo que no te da es **tu** offset de SMTC, **tu** timing de SSB en el gNB ni **tus** contadores de B1. El modelo nunca ha visto tu red, así que llena el vacío con texto que suena bien.
